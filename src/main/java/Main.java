@@ -10,19 +10,46 @@ public class Main {
         WebDriver driver = new ChromeDriver();
 
         // Open the Website to interact with.
-        driver.get("http://automationpractice.com/index.php");
+        driver.get("https://www.google.com/");
 
-        // Printing page title
-        String pageTitle = driver.getTitle();
-        System.out.println("PAGE TITLE: " + pageTitle);
-
-        // Printing current url
+        // Printing initial site url.
         String currentUrl = driver.getCurrentUrl();
         System.out.println("CURRENT URL: " + currentUrl);
 
-        // Printing source code
-        String pageSource = driver.getPageSource();
-        System.out.println("PAGE SOURCE: " + pageSource);
+        // Navigating to a different site and printing url.
+        driver.navigate().to("https://www.facebook.com/");
+        currentUrl = driver.getCurrentUrl();
+        System.out.println("CURRENT URL: " + currentUrl);
+
+        // Navigating to a different site and printing url.
+        driver.navigate().to("https://www.espn.com/");
+        currentUrl = driver.getCurrentUrl();
+        System.out.println("CURRENT URL: " + currentUrl);
+
+        // Moving backward twice and print current url.
+        driver.navigate().back();
+        driver.navigate().back();
+        currentUrl = driver.getCurrentUrl();
+        System.out.println("CURRENT URL: " + currentUrl);
+
+        // Moving forward once and print current url.
+        driver.navigate().forward();
+        currentUrl = driver.getCurrentUrl();
+        System.out.println("CURRENT URL: " + currentUrl);
+
+        // Asserting that current url is Facebook - DO NOT FORGET TO ENABLE ASSERTIONS FROM YOUR IDEA CONFIGURATION
+        // VM options =  -ea
+        // VM options =  -enableassertions
+        assert currentUrl.equals("https://www.facebook.com/") : "Page is incorrect.";
+        /*
+        assert line could be replaced with a if statement.
+         if (!currentUrl.equals("https://www.facebook.com/")) throw new AssertionError("Page is incorrect.");
+        * */
+
+        // Refreshing the url
+        driver.navigate().refresh();
+        currentUrl = driver.getCurrentUrl();
+        System.out.println("CURRENT URL: " + currentUrl);
 
         // Close current window.
         driver.close();
