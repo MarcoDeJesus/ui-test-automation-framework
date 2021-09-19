@@ -3,6 +3,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         // Setup the System properties with ChromeDriver information.
@@ -10,6 +12,9 @@ public class Main {
 
         // Create an instance of ChromeDriver.
         WebDriver driver = new ChromeDriver();
+
+        // Waiting for a page to be loaded.
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
         // Open the Website to interact with.
         driver.get("https://www.youtube.com/");
