@@ -1,0 +1,14 @@
+Select any a element and find all div ancestors
+$x("//a[last()]/ancestor::div")
+
+Select class attribute of body element
+$x("//body/attribute::class")
+
+Select all script descendant of head element
+$x("//head/descendant::script")
+
+Select first div child of body element, and select following-sibling
+$x("//body/div[1]/following-sibling::div")
+
+Select second div child of body element, and select preceding-sibling
+$x("//body/div[2]/preceding-sibling::div")
