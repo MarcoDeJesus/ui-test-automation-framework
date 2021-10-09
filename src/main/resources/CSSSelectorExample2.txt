@@ -1,0 +1,11 @@
+5.a. Select all a element whose father is a div
+document.querySelector("div > a")
+
+5.b. Select all a elements inside a li element
+document.querySelector("li a")
+
+5.c. Select all li elements placed after a li element
+document.querySelector("li + li")
+
+5.d. Select all article preceded by a div
+document.querySelector("div ~ article")
