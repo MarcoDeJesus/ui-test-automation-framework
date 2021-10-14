@@ -3,7 +3,6 @@ package com.qalabs.pageobjects;
 import org.mdejesus.spectral.WebDriverManager;
 import org.mdejesus.spectral.exceptions.NotWebDriverImplementedException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -22,6 +21,6 @@ public class TestNGExercise1 {
 
         String actual = driver.getCurrentUrl();
 
-        assertEquals(expected, actual, "Url is incorrect.");
+        assertEquals(actual, expected, "Url is incorrect.");
     }
 }
