@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SuiteForExample3" verbose="1" >
+    <test name="Basic Regression">
+        <groups>
+            <run>
+                <exclude name="Example3" />
+                <include name="Example2" />
+            </run>
+        </groups>
+        
+        <classes>
+            <class name="com.qalabs.pageobjects.TestNGExample2">
+                <methods>
+                    <include name="test2" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
