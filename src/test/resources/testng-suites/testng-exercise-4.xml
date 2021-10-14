@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SuiteForExample4" verbose="1" >
+    <parameter name="baseUrl" value="https://www.google.com.mx/" />
+    <test name="TestNGExample 4">
+        <classes>
+            <class name="com.qalabs.pageobjects.TestNGExample4" />
+        </classes>
+    </test>
+</suite>
