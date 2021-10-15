@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -15,9 +17,10 @@ public class BaseTest {
     public WebDriver driver;
 
     @BeforeSuite
-    public void setup(){
+    @Parameters("browser")
+    public void setup(@Optional("chrome") String browser){
         try {
-            driver = getDriver("chrome");
+            driver = getDriver(browser);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         } catch (NotWebDriverImplementedException e) {
             e.printStackTrace();
@@ -32,7 +35,8 @@ public class BaseTest {
             System.setProperty("webdriver.chrome.driver", chromeFilePath.getPath());
             return new ChromeDriver();
         }else if(browser.equalsIgnoreCase("firefox")){
-            File firefoxFilePath = new File(rootPath, "geckodriver");
+            File firefoxFilePath = new File(rootPath,
+                    "geckodriver");
             System.setProperty("webdriver.gecko.driver", firefoxFilePath.getPath());
             return new FirefoxDriver();
         }else{
