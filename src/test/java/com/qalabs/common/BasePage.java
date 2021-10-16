@@ -20,6 +20,7 @@ public class BasePage {
     public void open(){
         logger.info("Getting url: " + this.baseUrl);
         this.driver.get(this.baseUrl);
+        this.driver.manage().window().maximize();
         logger.info("Got: " + this.driver.getCurrentUrl());
     }
 
